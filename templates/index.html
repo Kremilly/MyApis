@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>Kremilly - APIs Central</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel='stylesheet' href='{{ url_for('static', filename='styles.css') }}'>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v6.5.2/css/all.css'>
+</head>
+<body>
+    <header>
+        <a href='{{ website_url }}' class='logo'></a>
+        <div class='label'>API's Central</div>
+
+        <nav>
+            <a href='https://github.com/{{ github_user }}' target='_blank'>
+                <div class='fab fa-github'></div>
+            </a>
+        </nav>
+    </header>
+
+    <ul>
+        {% for api in list_apis %}
+            <li>
+                <a href='{{ wiki_docs + api }}' target='_blank'>
+                    {{ api.replace('/', '') }}
+                    <div class='fas fa-arrow-up-right-from-square'></div>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

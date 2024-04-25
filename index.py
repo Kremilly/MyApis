@@ -1,0 +1,53 @@
+from apis.github import GitHub
+from apis.pdf_thumb import PDFThumb
+from apis.wikipedia import Wikipedia
+
+from flask import Flask, request, render_template
+
+app = Flask(__name__)
+
+def list_apis():
+    endpoints = []
+    for rule in app.url_map.iter_rules():
+        if rule.endpoint != 'index' and rule.endpoint != 'static':
+            endpoints.append('/' + rule.endpoint)
+        
+    return endpoints
+
+@app.route('/')
+def index():
+    return render_template(
+        'index.html',
+        list_apis=list_apis(),
+        
+        github_user='Kremilly',
+        website_url='https://kremilly.com',
+        wiki_docs='https://github.com/kremilly/MyApis/wiki',
+    )
+
+@app.route('/github', methods=['GET'])
+def github():
+    return GitHub({
+        'user': request.args.get('user')
+    }).get()
+
+@app.route('/pdfthumb', methods=['GET'])
+def pdfthumb():
+    return PDFThumb({
+        'pdf': request.args.get('pdf'),
+        'page': request.args.get('page'),
+        'width': request.args.get('width'),
+        'height': request.args.get('height'),
+    }).get()
+
+@app.route('/wikipedia', methods=['GET'])
+def wikipedia():
+    return Wikipedia({
+        'term': request.args.get('term'),
+        'location': request.args.get('location'),
+        'thumb_size': request.args.get('thumb_size'),
+        'short_summary': request.args.get('short_summary'),
+    }).get()
+
+if __name__ == '__main__':
+    app.run(port=5000, debug=True)

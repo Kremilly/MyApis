@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --font-size: 1em;
+    --text-color: #dedede;
+    --body-color: #282a36;
+    --bg-hover-color: #323543;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: var(--text-color);
+    background: var(--body-color);
+    font-family: "Montserrat", sans-serif;
+}
+
+header {
+    top: 0;
+    width: 100%;
+    height: 4.5em;
+    line-height: 4.5em;
+    margin-bottom: 1em;
+    background: var(--bg-hover-color);
+}
+
+header .logo {
+    width: 12em;
+    float: left;
+	height: 4.5em;
+	outline: none;
+	cursor: pointer;
+	margin-right: auto;
+    background-size: 100%;
+	background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('https://raw.githubusercontent.com/kremilly/kremilly/main/images/kremilly.png');
+}
+
+header .logo:hover {
+    background-color: var(--body-color);
+}
+
+header .label {
+    float: left;
+    cursor: default;
+    font-weight: 600;
+    padding-left: 1em;
+}
+
+header nav {
+    float: right;
+}
+
+header nav a {
+    float: left;
+    width: 4.5em;
+    height: 4.5em;
+    color: inherit;
+    cursor: pointer;
+    text-align: center;
+    line-height: 4.5em;
+    text-decoration: none;
+}
+
+header nav a div { font-size: 1.5em; }
+
+header nav a div:hover { opacity: .5; }
+
+hr {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border-color: transparent;
+}
+
+ul {
+    padding: 1em;
+    list-style-type: none;
+}
+
+li {
+    width: 100%;
+    display: block;
+}
+
+li a {
+    height: 2.5em;
+    outline: none;
+    display: block;
+    cursor: pointer;
+    font-weight: 600;
+    padding-left: 1em;
+    line-height: 2.5em;
+    text-decoration: none;
+    color: var(--text-color);
+    text-transform: capitalize;
+    background: var(--body-color);
+    border-left: .5em solid var(--body-color);
+}
+
+li a .fas {
+    opacity: 0;
+    width: 2.5em;
+    float: right;
+    height: 2.5em;
+    text-align: center;
+    line-height: 2.5em;
+}
+
+li a:hover {
+    background: var(--bg-hover-color);
+    border-left-color: var(--text-color);
+}
+
+li a:hover .fas {
+    opacity: 1;
+}
