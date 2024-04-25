@@ -38,7 +38,7 @@ class GitHub:
     def get_pinned_repositories(username, token):
         if not GitHub.user_exists(username, token):
             logging.error(f"User '{username}' does not exist on GitHub")
-            return 404
+            return token
         
         url = "https://api.github.com/graphql"
 
