@@ -11,7 +11,7 @@ import (
 
 func main() {
 	// Replace "kremilly" with your GitHub username
-	url := "https://api.kremilly.com/github?user=kremilly"
+	url := "https://api.kremilly.com/wikipedia?user=kremilly"
 
 	response, err := http.Get(url)
 	if err != nil {
