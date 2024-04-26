@@ -9,18 +9,24 @@
   <a href='https://vercel.com'><img src='https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white' /></a>
 </p>
 
-<p></p>
-
 <p align='center'>
   <a href='https://kremilly.com'><img src='https://img.shields.io/badge/Kremilly.com-000000?style=for-the-badge&logo=About.me&logoColor=white' /></a>
   <a href='https://api.kremilly.com'><img src='https://img.shields.io/badge/Kremilly-APIs-000000?style=for-the-badge&logo=About.me&logoColor=white' /></a>
 </p>
 
-### Wikis
+<h3>Wikis</h3>
 
-* [GitHub](https://github.com/kremilly/MyApis/wiki/github)
-* [PDFThumb](https://github.com/kremilly/MyApis/wiki/pdfthumb)
-* [Wikipedia](https://github.com/kremilly/MyApis/wiki/wikipedia)
+<ul>
+  <li>
+    <b><a href='https://github.com/kremilly/MyApis/wiki/github'>GitHub</a></b>
+  </li>
+  <li>
+    <b><a href='https://github.com/kremilly/MyApis/wiki/pdfthumb'>PDFThumb</a></b>
+  </li>
+  <li>
+    <b><a href='https://github.com/kremilly/MyApis/wiki/github'>Wikipedia</a></b>
+  </li>
+</ul>
 
 <p>
   <img src='https://img.shields.io/github/license/kremilly/MyApis.svg' />
