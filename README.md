@@ -24,6 +24,9 @@
     <b><a href='https://github.com/kremilly/MyApis/wiki/pdfthumb'>PDFThumb</a></b>
   </li>
   <li>
+    <b><a href='https://github.com/kremilly/MyApis/wiki/qrcode'>QRCode</a></b>
+  </li>
+  <li>
     <b><a href='https://github.com/kremilly/MyApis/wiki/github'>Wikipedia</a></b>
   </li>
 </ul>

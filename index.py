@@ -1,3 +1,4 @@
+from apis.qrcode import QRCode
 from apis.github import GitHub
 from apis.pdf_thumb import PDFThumb
 from apis.wikipedia import Wikipedia
@@ -29,6 +30,12 @@ def index():
 def github():
     return GitHub({
         'user': request.args.get('user')
+    }).get()
+    
+@app.route('/qrcode', methods=['GET'])
+def qrcode():
+    return QRCode({
+        'url': request.args.get('url')
     }).get()
 
 @app.route('/pdfthumb', methods=['GET'])

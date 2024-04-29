@@ -16,7 +16,7 @@
 body {
     color: var(--text-color);
     background: var(--body-color);
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 header {
@@ -29,7 +29,7 @@ header {
 }
 
 header .logo {
-    width: 12em;
+    width: 10em;
     float: left;
 	height: 4.5em;
 	outline: none;
