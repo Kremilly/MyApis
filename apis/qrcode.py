@@ -3,7 +3,7 @@
 import qrcode
 
 from io import BytesIO
-from flask import Response
+from flask import Response, jsonify
 
 class QRCode:
     
@@ -13,6 +13,9 @@ class QRCode:
     
     @classmethod
     def get(cls) -> BytesIO:
+        if cls.url is None:
+            return jsonify({"error": "Parameter 'url' not provided"}), 400
+        
         qr = qrcode.QRCode(
             border=4,
             version=1,
@@ -37,4 +40,3 @@ class QRCode:
             img_byte_array.getvalue(), 
             content_type='image/png'
         )
-

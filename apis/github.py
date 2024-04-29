@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 
 from http import HTTPStatus
 
-from flask import jsonify, request
+from flask import jsonify
 
 class GitHub:
     
@@ -14,6 +14,7 @@ class GitHub:
     @staticmethod
     def user_exists(username, token):
         url = f"https://api.github.com/users/{username}"
+        
         headers = {
             "Authorization": f"Bearer {token}",
             "Accept": "application/vnd.github.v3+json"  # Use a versão v3 da API
@@ -82,8 +83,9 @@ class GitHub:
             response = requests.post(url, json={"query": query}, headers=headers)
             response.raise_for_status()  # Raise HTTPError for bad responses
 
-            if response.status_code == 200:
+            if response.status_code == HTTPStatus.OK:
                 data = response.json().get("data", {}).get("user", {})
+                
                 return [
                     {
                         "name": repo["name"],
@@ -121,7 +123,7 @@ class GitHub:
         if cls.user is None:
             return jsonify({"error": "Parameter 'user' not provided"}), 400
         
-        user = request.args['user']
+        user = cls.user
         token = os.environ.get('GH_TOKEN')
 
         callback = cls.get_pinned_repositories(user, token)
