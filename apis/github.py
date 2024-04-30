@@ -1,4 +1,5 @@
 import os, requests, logging
+
 from dotenv import load_dotenv
 
 from http import HTTPStatus
@@ -10,18 +11,54 @@ class GitHub:
     @classmethod
     def __init__(cls, params):
         cls.user = params['user']
-    
-    @staticmethod
-    def user_exists(username, token):
-        url = f"https://api.github.com/users/{username}"
         
-        headers = {
-            "Authorization": f"Bearer {token}",
-            "Accept": "application/vnd.github.v3+json"  # Use a versão v3 da API
+    @classmethod
+    def get_query_graphql(cls, username):
+        return """
+        query {
+            user(login: "%s") {
+                pinnedItems(first: 10, types: REPOSITORY) {
+                    nodes {
+                        ... on Repository {
+                            name
+                            description
+                            url
+                            homepageUrl
+                            languages(first: 5) {
+                                nodes { name }
+                            }
+                            stargazerCount
+                            forkCount
+                            repositoryTopics(first: 5) {
+                                nodes {
+                                    topic { name }
+                                }
+                            }
+                            issues {
+                                totalCount
+                            }
+                            defaultBranchRef {
+                                target {
+                                    ... on Commit {
+                                        history { totalCount }
+                                    }
+                                }
+                            }
+                            collaborators { totalCount }
+                        }
+                    }
+                }
+            }
         }
-
+        """ % username
+    
+    @classmethod
+    def user_exists(cls, username, token):
         try:
-            response = requests.get(url, headers=headers)
+            response = requests.get(f"https://api.github.com/users/{username}", headers={
+                "Authorization": f"Bearer {token}",
+                "Accept": "application/vnd.github.v3+json"
+            })
             
             if response.status_code == HTTPStatus.OK:
                 return True
@@ -35,53 +72,21 @@ class GitHub:
             logging.error(f"Request Exception: {e}")
             return False
 
-    @staticmethod
-    def get_pinned_repositories(username, token):
-        if not GitHub.user_exists(username, token):
+    @classmethod
+    def get_pinned_repositories(cls, username, token):
+        if not cls.user_exists(username, token):
             logging.error(f"User '{username}': does not exist on GitHub")
             return 404
-        
-        url = "https://api.github.com/graphql"
-
-        headers = {
-            "Authorization": f"Bearer {token}",
-            "Content-Type": "application/json",
-        }
-
-        query = """
-        query {
-          user(login: "%s") {
-            pinnedItems(first: 10, types: REPOSITORY) {
-              nodes {
-                ... on Repository {
-                  name
-                  description
-                  url
-                  homepageUrl
-                  languages(first: 5) {
-                    nodes {
-                      name
-                    }
-                  }
-                  stargazerCount
-                  forkCount
-                  repositoryTopics(first: 5) {
-                    nodes {
-                      topic {
-                        name
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-        """ % username
 
         try:
-            response = requests.post(url, json={"query": query}, headers=headers)
-            response.raise_for_status()  # Raise HTTPError for bad responses
+            response = requests.post("https://api.github.com/graphql", json={
+                "query": cls.get_query_graphql(username)
+            }, headers={
+                "Authorization": f"Bearer {token}",
+                "Content-Type": "application/json",
+            })
+            
+            response.raise_for_status()
 
             if response.status_code == HTTPStatus.OK:
                 data = response.json().get("data", {}).get("user", {})
@@ -92,10 +97,17 @@ class GitHub:
                         "description": repo["description"],
                         "url": repo["url"],
                         "home": repo.get("homepageUrl", ""),
-                        "languages": [lang["name"] for lang in repo["languages"]["nodes"]],
+                        "languages": [
+                            lang["name"] for lang in repo["languages"]["nodes"]
+                        ],
                         "stars": repo.get("stargazerCount", 0),
                         "forks": repo.get("forkCount", 0),
-                        "tags": [topic.get("topic", {}).get("name", "") for topic in repo.get("repositoryTopics", {}).get("nodes", [])],
+                        "tags": [
+                            topic.get("topic", {}).get("name", "") for topic in repo.get("repositoryTopics", {}).get("nodes", [])
+                        ],
+                        "issues": repo.get("issues", {}).get("totalCount", 0),
+                        "commits": repo.get("defaultBranchRef", {}).get("target", {}).get("history", {}).get("totalCount", 0),
+                        "contributors": repo.get("collaborators", {}).get("totalCount", 0)
                     }
                     
                     for repo in data.get("pinnedItems", {}).get("nodes", [])
@@ -112,27 +124,35 @@ class GitHub:
             return None
 
     @classmethod
-    def get_repository_info(cls, user, token):
-        repos_pinned = cls.get_pinned_repositories(user, token) 
-        return repos_pinned
-
-    @classmethod
     def get(cls):
         load_dotenv()
 
         if cls.user is None:
-            return jsonify({"error": "Parameter 'user' not provided"}), 400
+            return jsonify({
+                "error": "Parameter 'user' not provided"
+            }), 400
         
-        user = cls.user
-        token = os.environ.get('GH_TOKEN')
-
-        callback = cls.get_pinned_repositories(user, token)
+        callback = cls.get_pinned_repositories(
+            cls.user,
+            os.environ.get('GH_TOKEN')
+        )
         
         if not callback:
-            return jsonify({"message": f"User '{user}' does not have any pinned repositories"}), 200
-        elif callback == 404:
-            return jsonify({"error": f"User '{user}' does not exist on GitHub"}), 404
+            return jsonify({
+                "message": f"User '{cls.user}' does not have any pinned repositories"
+            }), 200
+            
+        elif callback == HTTPStatus.NOT_FOUND:
+            return jsonify({
+                "error": f"User '{cls.user}' does not exist on GitHub"
+            }), 404
+            
         elif callback:
-            return jsonify(callback), 200
+            return jsonify(
+                callback
+            ), 200
+            
         else:
-            return jsonify({"error": "Error fetching pinned repositories"}), 500
+            return jsonify({
+                "error": "Error fetching pinned repositories"
+            }), 500
