@@ -33,8 +33,7 @@ class CVE:
             'engine': data['containers']['cna']['x_generator']['engine'],
             'provider_metadata': data['containers']['cna']['providerMetadata'],
             
-            'basic': {
-                'id': cls.cve,
+            'pages_url': {
                 'json': api_uri_json,
                 'page': f'https://www.cve.org/CVERecord?id={cls.cve}',
             },
