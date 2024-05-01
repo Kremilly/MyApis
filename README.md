@@ -30,7 +30,7 @@
     <b><a href='https://github.com/kremilly/MyApis/wiki/qrcode'>QRCode</a></b>
   </li>
   <li>
-    <b><a href='https://github.com/kremilly/MyApis/wiki/github'>Wikipedia</a></b>
+    <b><a href='https://github.com/kremilly/MyApis/wiki/wikipedia'>Wikipedia</a></b>
   </li>
 </ul>
 
