@@ -5,7 +5,7 @@ from io import BytesIO
 
 from http import HTTPStatus
 
-from flask import request, send_file
+from flask import send_file
 
 class PDFThumb:
     
@@ -37,8 +37,7 @@ class PDFThumb:
         
     @classmethod
     def get_default_thumbnail(cls):
-        default_image_url = 'https://i.imgur.com/CvdZqTL.png'
-        response = requests.get(default_image_url)
+        response = requests.get('https://i.imgur.com/CvdZqTL.png')
 
         if response.status_code == HTTPStatus.OK:
             return BytesIO(response.content)
