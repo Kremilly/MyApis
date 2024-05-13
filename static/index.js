@@ -16,10 +16,13 @@ $( e => {
 
     $('#search-bar-toggle').click( function () {
         $(this).toggleClass('showed')
+        
         $('#menu-box-toggle').removeClass('showed')
-
+        
         $('#menu-box').slideUp(250)
         $('#search-bar').slideToggle(250)
+        
+        $('input').focus()
     })
 
     $('#menu-box-toggle').click( function () {
