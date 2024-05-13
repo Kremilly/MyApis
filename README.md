@@ -24,6 +24,9 @@
     <b><a href='https://github.com/kremilly/MyApis/wiki/github'>GitHub</a></b>
   </li>
   <li>
+    <b><a href='https://github.com/kremilly/MyApis/wiki/pdfscrape'>PDFScrape</a></b>
+  </li>
+  <li>
     <b><a href='https://github.com/kremilly/MyApis/wiki/pdfthumb'>PDFThumb</a></b>
   </li>
   <li>
