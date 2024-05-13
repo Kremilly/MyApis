@@ -9,25 +9,67 @@
 </head>
 <body>
     <header>
-        <a href='{{ website_url }}' class='logo'></a>
+        <a href='https://{{ website_domain }}' class='logo'></a>
         <div class='label'>API's Central</div>
 
         <nav>
+            <a id='search-bar-toggle'>
+                <div class='fas fa-search'></div>
+            </a>
+
+            <a id='menu-box-toggle'>
+                <div class='fas fa-bars'></div>
+            </a>
+
             <a href='https://github.com/{{ github_user }}' target='_blank'>
                 <div class='fab fa-github'></div>
             </a>
         </nav>
     </header>
 
-    <ul>
+    <div class='search-bar' id='search-bar'>
+        <input type='text' placeholder='Search...' id='search-input' autocomplete='off'>
+    </div>
+
+    <div class='menu-box' id='menu-box'>
+        <a href='https://{{ website_domain }}' target='_blank'>
+            <div class='fas fa-house'></div>
+            Kremilly website
+        </a>
+
+        <a href='https://crates.io/users/{{ crates_user }}' target='_blank'>
+            <div class='fab fa-rust'></div>
+            Kremilly on Crates.io
+        </a>
+
+        <a href='https://pypi.org/user/{{ pypi_user }}' target='_blank'>
+            <div class='fab fa-python'></div>
+            Kremilly on PyPi.org
+        </a>
+
+        <a href='https://packagist.org/users/{{ packagist_user }}' target='_blank'>
+            <div class='fab fa-php'></div>
+            Kremilly on Packagist
+        </a>
+
+        <a href='mailto:{{ email_user }}' target='_blank'>
+            <div class='fas fa-envelope'></div>
+            Kremilly contact
+        </a>
+    </div>
+
+    <ul id='list'>
         {% for api in list_apis %}
-            <li>
-                <a href='{{ wiki_docs + api }}' target='_blank'>
+            <li class='li-name'>
+                <a href='{{ wiki_docs + api }}' class='api-name' target='_blank'>
                     {{ api.replace('/', '') }}
                     <div class='fas fa-arrow-up-right-from-square'></div>
                 </a>
             </li>
         {% endfor %}
     </ul>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>
+    <script src='{{ url_for('static', filename='index.js') }}'></script>
 </body>
 </html>

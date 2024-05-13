@@ -2,9 +2,7 @@ import requests, fitz  # PyMuPDF
 
 from PIL import Image
 from io import BytesIO
-
 from http import HTTPStatus
-
 from flask import send_file
 
 class PDFThumb:

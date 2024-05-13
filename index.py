@@ -3,6 +3,7 @@ from apis.qrcode import QRCode
 from apis.github import GitHub
 from apis.pdf_thumb import PDFThumb
 from apis.wikipedia import Wikipedia
+from apis.pdf_scrape import PDFScrape
 
 from flask import Flask, request, render_template
 
@@ -24,7 +25,12 @@ def index():
         list_apis=list_apis(),
         
         github_user='Kremilly',
-        website_url='https://kremilly.com',
+        crates_user='Kremilly',
+        pypi_user='thesilvaemily',
+        packagist_user='Kremilly',
+        website_domain='kremilly.com',
+        email_user='contact@kremilly.com',
+        
         wiki_docs='https://github.com/kremilly/MyApis/wiki',
     )
 
@@ -64,5 +70,11 @@ def cve():
         'id': request.args.get('id')
     }).get()
 
+@app.route('/pdfscrape', methods=['GET'])
+def pdfscrape():
+    return PDFScrape({
+        'url': request.args.get('url')
+    }).get()
+
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

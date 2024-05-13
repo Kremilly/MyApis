@@ -1,10 +1,8 @@
 import os, requests, logging
 
-from dotenv import load_dotenv
-
-from http import HTTPStatus
-
 from flask import jsonify
+from http import HTTPStatus
+from dotenv import load_dotenv
 
 class GitHub:
     

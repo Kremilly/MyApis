@@ -1,7 +1,6 @@
 import requests
 
 from flask import jsonify
-
 from http import HTTPStatus
 
 class CVE:

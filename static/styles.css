@@ -2,9 +2,12 @@
 
 :root {
     --font-size: 1em;
+
     --text-color: #dedede;
     --body-color: #282a36;
+    --border-color: #6e7681;
     --bg-hover-color: #323543;
+    --text-color-hover: #88e2f5;
 }
 
 * {
@@ -23,15 +26,18 @@ header {
     top: 0;
     width: 100%;
     height: 4.5em;
+    display: absolute;
     line-height: 4.5em;
     margin-bottom: 1em;
+    z-index: 99999999999;
     background: var(--bg-hover-color);
+    border-bottom: .1em solid var(--border-color);
 }
 
-header .logo {
-    width: 10em;
+header > .logo {
+    width: 9em;
     float: left;
-	height: 4.5em;
+	height: 100%;
 	outline: none;
 	cursor: pointer;
 	margin-right: auto;
@@ -41,35 +47,111 @@ header .logo {
     background-image: url('https://raw.githubusercontent.com/kremilly/kremilly/main/images/kremilly.png');
 }
 
-header .logo:hover {
-    background-color: var(--body-color);
-}
+header > .logo:hover { background-color: var(--body-color); }
 
-header .label {
+header > .label {
     float: left;
     cursor: default;
+    font-size: .9em;
     font-weight: 600;
     padding-left: 1em;
+    line-height: 4.9em;
+    text-align: center;
 }
 
-header nav {
-    float: right;
-}
+header > nav { float: right; }
 
-header nav a {
+header > nav > a {
     float: left;
-    width: 4.5em;
-    height: 4.5em;
+    width: 3.5em;
+    height: 4.4em;
     color: inherit;
     cursor: pointer;
     text-align: center;
-    line-height: 4.5em;
     text-decoration: none;
+    box-sizing: border-box;
+    border-left: .1em solid transparent;
+    border-right: .1em solid transparent;
 }
 
-header nav a div { font-size: 1.5em; }
+header > nav > .showed {
+    background: var(--body-color);
+    border-color: var(--border-color);
+}
 
-header nav a div:hover { opacity: .5; }
+header > nav > a:hover { background: var(--body-color); }
+
+.search-bar {
+    top: 0;
+    width: 100%;
+    height: 2.5em;
+    display: none;
+    margin-top: -1em;
+    line-height: 2.5em;
+    margin-bottom: 1em;
+    background: var(--bg-hover-color);
+}
+
+.search-bar > input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    color: inherit;
+    font-weight: 600;
+    padding-left: 1%;
+    padding-right: 1%;
+    background: inherit;
+    font-family: inherit;
+    border-top: .1em solid transparent;
+    border-left: .5em solid transparent;
+    border-bottom: .1em solid var(--border-color);
+}
+
+.search-bar > input:hover, .search-bar > input:focus {
+    background: var(--body-color);
+    color: var(--text-color-hover);
+    border-left-color: var(--text-color-hover);
+}
+
+.search-bar > input:hover::placeholder { color: var(--text-color-hover); }
+
+.search-bar > input::placeholder, .search-bar > input:focus::placeholder { color: inherit; }
+
+.menu-box {
+    top: 0;
+    width: 16em;
+    float: right;
+    display: none;
+    margin-top: -1em;
+    position: relative;
+    z-index: 9999999999;
+    border-top: none !important;
+    border-right: none !important;
+    background: var(--bg-hover-color);
+    border: .1em solid var(--border-color);
+}
+
+.menu-box > a {
+    height: 2.5em;
+    display: block;
+    color: inherit;
+    font-size: .9em;
+    font-weight: 600;
+    line-height: 2.5em;
+    text-decoration: none;
+    border-left: .5em solid transparent;
+}
+
+.menu-box > a:hover {
+    background: var(--body-color);
+    border-left-color: var(--text-color-hover);
+}
+
+.menu-box > a > div {
+    padding-left: .5em;
+    padding-right: .5em;
+}
 
 hr {
     margin-top: 1em;
@@ -87,7 +169,7 @@ li {
     display: block;
 }
 
-li a {
+li > a {
     height: 2.5em;
     outline: none;
     display: block;
@@ -99,10 +181,11 @@ li a {
     color: var(--text-color);
     text-transform: capitalize;
     background: var(--body-color);
-    border-left: .5em solid var(--body-color);
+    border: .1em solid transparent;
+    border-left: .5em solid transparent;
 }
 
-li a .fas {
+li > a > .fas {
     opacity: 0;
     width: 2.5em;
     float: right;
@@ -111,11 +194,11 @@ li a .fas {
     line-height: 2.5em;
 }
 
-li a:hover {
+li > a:hover {
+    color: var(--text-color-hover);
     background: var(--bg-hover-color);
-    border-left-color: var(--text-color);
+    border-color: var(--border-color);
+    border-left-color: var(--text-color-hover);
 }
 
-li a:hover .fas {
-    opacity: 1;
-}
+li > a:hover > .fas { opacity: 1; }
