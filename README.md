@@ -33,6 +33,9 @@
     <b><a href='https://github.com/kremilly/MyApis/wiki/qrcode'>QRCode</a></b>
   </li>
   <li>
+    <b><a href='https://github.com/kremilly/MyApis/wiki/scihub'>SciHub</a></b>
+  </li>
+  <li>
     <b><a href='https://github.com/kremilly/MyApis/wiki/wikipedia'>Wikipedia</a></b>
   </li>
 </ul>
