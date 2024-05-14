@@ -22,4 +22,4 @@ requests==2.31.0
 soupsieve==2.5
 typing_extensions==4.11.0
 urllib3==2.2.1
-Werkzeug==3.0.2
+Werkzeug==3.0.3
