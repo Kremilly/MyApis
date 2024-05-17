@@ -39,7 +39,3 @@
     <b><a href='https://github.com/kremilly/MyApis/wiki/wikipedia'>Wikipedia</a></b>
   </li>
 </ul>
-
-<p>
-  <img src='https://img.shields.io/github/license/kremilly/MyApis.svg' />
-</p>
