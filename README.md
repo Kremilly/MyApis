@@ -14,7 +14,7 @@
   <a href='https://api.kremilly.com'><img src='https://img.shields.io/badge/Kremilly-APIs-000000?style=for-the-badge&logo=About.me&logoColor=white' /></a>
 </p>
 
-<h3>Wikis</h3>
+<h3>API's</h3>
 
 <ul>
   <li>
