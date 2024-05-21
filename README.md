@@ -14,6 +14,9 @@
   <a href='https://api.kremilly.com'><img src='https://img.shields.io/badge/Kremilly-APIs-000000?style=for-the-badge&logo=About.me&logoColor=white' /></a>
 </p>
 
+> [!important]
+> All the provided APIs do not require any type of API key and are free to use.
+
 <h3>API's</h3>
 
 <ul>
