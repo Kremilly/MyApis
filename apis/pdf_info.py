@@ -1,8 +1,7 @@
-from asyncio.windows_events import NULL
-import io, urllib.request, os, requests, tempfile 
+import io, os, requests, tempfile 
 
 from flask import jsonify
-from PyPDF2 import PdfReader, PdfFileReader
+from PyPDF2 import PdfReader
 
 class PDFInfo:
     
@@ -28,7 +27,7 @@ class PDFInfo:
         return pdf_reader.is_encrypted
         
     def get_total_pages(cls):
-        total_pages = NULL
+        total_pages = 0
         
         if not cls.check_pdf_password():
             response = requests.get(cls.pdf)
