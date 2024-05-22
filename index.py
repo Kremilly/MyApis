@@ -71,12 +71,6 @@ def cve():
         'id': request.args.get('id')
     }).get()
 
-@app.route('/pdfinfo', methods=['GET'])
-def pdfinfo():
-    return PDFInfo({
-        'pdf': request.args.get('pdf')
-    }).get()
-
 @app.route('/scihub', methods=['GET'])
 def scihub():
     return SciHub({
