@@ -5,6 +5,7 @@ from apis.sci_hub import SciHub
 from apis.pdf_info import PDFInfo
 from apis.pdf_thumb import PDFThumb
 from apis.wikipedia import Wikipedia
+from apis.pdf_scrape import PDFScrape
 
 from flask import Flask, request, render_template
 
@@ -75,6 +76,12 @@ def cve():
 def scihub():
     return SciHub({
         'paper': request.args.get('paper')
+    }).get()
+    
+@app.route('/pdfscrape', methods=['GET'])
+def pdfscrape():
+    return PDFScrape({
+        'url': request.args.get('url')
     }).get()
 
 @app.route('/pdfinfo', methods=['GET'])
