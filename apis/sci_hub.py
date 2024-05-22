@@ -9,7 +9,7 @@ class SciHub:
     DEFAULT_DOMAIN = 'https://sci-hub.se/'
     
     @classmethod
-    def __init__(cls, params:str):
+    def __init__(cls, params:dict):
         cls.paper = cls.get_paper_doi(params['paper'])
         
     @classmethod
@@ -27,7 +27,7 @@ class SciHub:
             soup = BeautifulSoup(response.text, 'html.parser')
             
             embed_tag = soup.find('embed')
-            src_value = embed_tag.get('src').split('#')[0]
+            src_value = embed_tag.get('src').split('#')[0] # type: ignore
             
             if src_value.startswith('//'):
                 src_value = 'https:' + src_value
