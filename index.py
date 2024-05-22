@@ -4,7 +4,6 @@ from apis.github import GitHub
 from apis.sci_hub import SciHub
 from apis.pdf_thumb import PDFThumb
 from apis.wikipedia import Wikipedia
-from apis.pdf_info import PDFInfo
 
 from flask import Flask, request, render_template
 
@@ -78,4 +77,4 @@ def scihub():
     }).get()
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
