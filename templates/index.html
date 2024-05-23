@@ -6,6 +6,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <link rel='stylesheet' href='{{ url_for('static', filename='styles.css') }}'>
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v6.5.2/css/all.css'>
+    <link rel='icon' type='image/png' sizes='32x32' href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAA8RJREFUWEftll1om1UYx3/nfW3aNU22pWWVprZO5kSboa7rKCiiCCqI3rhVZcy13kzxxquib2uL0pnNoeCFF4of9WPqdiWIDOeu5o10dFKSCqLYzbUb0SWzX0nbJe+R877p0iRvkjYpDMT0JpzznOf/63me538ipJQaN/Aj/gf479zA6EGdU6M7kYttSFzo8jx+/4/s/z5RrMXWpweCgf2kUm8gREuWmCSKph/BGHgH9konkMoAhntcTI58ipBdxQdJO07f4D4niPIBlPilkRNI+YQSl1IQm65lNlGNaYK75hoNm+fRNdNmE3ovRujtXNDyAYYCxxDmMyrhtZTOxKSPhaWbsvLXVCfZ1nwFTZOgytF6S2tuT1QAcFcMwUalGInWEYl5HKvQ6JulsX4ufQvaYxjhH1YGlg8QbDuAKT8ENBBMRrzEZmrzIOpqF7nNH0uv6y/SF/pgfQBUljcDzyPN94tBeN0L3Np0NX0Dogdj/LPKAI4+tIVkdCfbnjrN3sFkKQj/lmnqN8ZtzaqaDnrPnSsf4K32O0gmTiNpAm2IvvCglazATdS4ktzecgUhLAuY4L6nt/PgYHos0pdS1IrVqE2dHYbU46AFEfIlW1yNlXYIIzxw/b/JgYhE3fg2JajSU3aIpj/Hq6Fjqx/DnDnPOijEtzTt7qL7k6Ws9SyIFTtSnKB//FmnMSk8BUNtXzk7nBzD39mZJ76cPReiEGw63hlAebtpDqsYZTLz8So2eRaWJUyEdhAj/LG1YJVp5DXr+/au1+3G3NGNTL4L+nf4O7oLwqpK5vWAetVOnvldPSzKXn/7s8FyOJ83TnPjjDJdJWVDNHV8sdKOEflG43TtxacguKsDM/6TCor+42bqb+/1+DwIZAjE3VaA5DJ1De28fCZSSrQ4gHV9qY9U0PnLPmbmqrPy5UDYe0rcteFhekd/XYu4is0vwaHAC2C+pzb/mKpnLu7Ky2lDTGfWhTAwxo+sVdwZ4HDgEVLmSbUZiXqIxOoc87bcfDXTmJJp+n/xrQ/A549u4MLFCwjqpbTLMDufXQblcFubYxmTkdrX9If3rQ+AyjJ053GE2GOVV8JfMQ/xxSoEEo97EZ83sWyvUGLOS0Hl90AhN3PKpByuefeBYnO+NoDgjh7MlHqvNaT6075BmA+ocuQkmkDoAxihL0sJlNrP3MDRXfewFD9rv+1po1Fup3ri4tT9IFtBS6K5xuh8ciz3VSslVGjfCUC9dBmrLTfzKs9l98Dh9nutc6+M/rzK8xWHlf+bsGJpO8ENB/gXOLHOEJA5aekAAAAASUVORK5CYII='>
 </head>
 <body>
     <header>
@@ -60,8 +61,8 @@
     <ul id='list'>
         {% for api in list_apis %}
             <li class='li-name'>
-                <a href='{{ wiki_docs + api }}' class='api-name' target='_blank'>
-                    {{ api.replace('/', '') }}
+                <a href='{{ api.wiki }}' class='api-name' target='_blank'>
+                    {{ api.name }}
                     <div class='fas fa-arrow-up-right-from-square'></div>
                 </a>
             </li>

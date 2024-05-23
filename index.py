@@ -7,34 +7,41 @@ from apis.pdf_thumb import PDFThumb
 from apis.wikipedia import Wikipedia
 from apis.pdf_scrape import PDFScrape
 
+from apis.kremilly import Kremilly
+
 from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
-def list_apis():
-    endpoints = []
+kremilly = Kremilly(app, {
+    'repo': 'MyApis',
+    'github': 'Kremilly',
     
-    for rule in app.url_map.iter_rules():
-        if rule.endpoint != 'index' and rule.endpoint != 'static':
-            endpoints.append('/' + rule.endpoint)
-        
-    return sorted(endpoints)
+    'crates': 'Kremilly',
+    'packagist': 'Kremilly',
+    'pypi': 'thesilvaemilly',
+    
+    'domain': 'kremilly.com',
+    'email': 'contact@kremilly.com',
+})
 
 @app.route('/')
 def index():
     return render_template(
         'index.html',
-        list_apis=list_apis(),
+        list_apis=kremilly.list_visual(),
         
-        github_user='Kremilly',
-        crates_user='Kremilly',
-        pypi_user='thesilvaemily',
-        packagist_user='Kremilly',
-        website_domain='kremilly.com',
-        email_user='contact@kremilly.com',
-        
-        wiki_docs='https://github.com/kremilly/MyApis/wiki',
+        pypi_user=kremilly.pypi,
+        email_user=kremilly.email,
+        github_user=kremilly.github,
+        crates_user=kremilly.crates,
+        website_domain=kremilly.domain,
+        packagist_user=kremilly.packagist,
     )
+
+@app.route('/json')
+def json():
+    return kremilly.list_json()
 
 @app.route('/github', methods=['GET'])
 def github():
