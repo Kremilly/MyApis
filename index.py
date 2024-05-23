@@ -6,6 +6,7 @@ from apis.pdf_info import PDFInfo
 from apis.pdf_thumb import PDFThumb
 from apis.wikipedia import Wikipedia
 from apis.pdf_scrape import PDFScrape
+from apis.readme import *
 
 from apis.kremilly import Kremilly
 
@@ -95,6 +96,13 @@ def pdfscrape():
 def pdfinfo():
     return PDFInfo({
         'pdf': request.args.get('pdf')
+    }).get()
+    
+@app.route('/devto', methods=['GET'])
+def devto():
+    return ReadmeDevToPosts({
+        'color': request.args.get('color'),
+        'username': request.args.get('username'),
     }).get()
 
 if __name__ == '__main__':
