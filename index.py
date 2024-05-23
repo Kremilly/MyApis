@@ -6,9 +6,9 @@ from apis.pdf_info import PDFInfo
 from apis.pdf_thumb import PDFThumb
 from apis.wikipedia import Wikipedia
 from apis.pdf_scrape import PDFScrape
-from apis.readme import *
+from apis.readme import ReadmeDevToPosts
 
-from apis.kremilly import Kremilly
+from kremilly.kremilly import Kremilly
 
 from flask import Flask, request, render_template
 
