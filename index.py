@@ -18,9 +18,9 @@ kremilly = Kremilly(app, {
     'repo': 'MyApis',
     'github': 'Kremilly',
     
+    'pypi': 'Kremilly',
     'crates': 'Kremilly',
     'packagist': 'Kremilly',
-    'pypi': 'thesilvaemilly',
     
     'domain': 'kremilly.com',
     'email': 'contact@kremilly.com',
