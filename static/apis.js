@@ -1,4 +1,4 @@
-function getFetchApis() {
+function getFetchApis(el) {
     return fetch(`${window.location.origin}/json`).then(
         response => response.json()
     ).then( data => {
@@ -20,7 +20,7 @@ function getFetchApis() {
     })
 }
 
-function getFetchCrates() {
+function getFetchCrates(el) {
     let userId = 232087
 
     return fetch(`https://crates.io/api/v1/crates?user_id=${ userId }`).then(

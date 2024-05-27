@@ -1,6 +1,6 @@
 $( e => {
 
-    getFetchApis()
+    getFetchApis('#apisBtn')
 
     $('#search-input').on('input', function () {
         var searchText = $(this).val().toLowerCase()
