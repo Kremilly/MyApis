@@ -36,11 +36,11 @@ $( e => {
     })
 
     $('#apisBtn').click( function () {
-        getFetchApis()
+        getFetchApis(this)
     })
 
     $('#cratesBtn').click( function () {
-        getFetchCrates()
+        getFetchCrates(this)
     })
 
 })
