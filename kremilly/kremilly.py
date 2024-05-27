@@ -13,21 +13,6 @@ class Kremilly:
         cls.domain = params['domain']
         cls.packagist = params['packagist']
         cls.email = params['email']
-        
-    @classmethod
-    def list_visual(cls):
-        endpoints = []
-        
-        for rule in cls.app.url_map.iter_rules():
-            if rule.endpoint != 'index' and rule.endpoint != 'static' and rule.endpoint != 'json':
-                endpoints.append({
-                    'name': rule.endpoint,
-                    'wiki': f'https://github.com/{cls.github}/{cls.repo}/wiki/{rule.endpoint}',
-                })
-            
-        return sorted(
-            endpoints, key=lambda x: x['name']
-        )
     
     @classmethod
     def list_json(cls):
@@ -50,4 +35,3 @@ class Kremilly:
             'list': list_sorted,      
             'total': len(endpoints)
         })
-

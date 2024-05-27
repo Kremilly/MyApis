@@ -30,7 +30,6 @@ kremilly = Kremilly(app, {
 def index():
     return render_template(
         'index.html',
-        list_apis=kremilly.list_visual(),
         
         pypi_user=kremilly.pypi,
         email_user=kremilly.email,

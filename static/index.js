@@ -33,4 +33,12 @@ $( e => {
         $('#menu-box').slideToggle(250)
     })
 
+    $('#apisBtn').click( function () {
+        getFetchApis(this)
+    })
+
+    $('#cratesBtn').click( function () {
+        getFetchCrates(this)
+    })
+
 })

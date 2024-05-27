@@ -10,20 +10,17 @@
 </head>
 <body>
     <header>
-        <a href='https://{{ website_domain }}' class='logo'></a>
+        <a href='https://{{ website_domain }}' target='_blank' class='logo'></a>
+
+        <div class='tab actived' id='apisBtn'>API's</div>
+        <div class='tab' id='cratesBtn'>Crates</div>
         
         <nav>
-            <a id='search-bar-toggle'>
-                <div class='fas fa-search'></div>
-            </a>
+            <a id='search-bar-toggle' class='fas fa-search icon'></a>
 
-            <a id='menu-box-toggle'>
-                <div class='fas fa-bars'></div>
-            </a>
+            <a id='menu-box-toggle' class='fas fa-bars icon'></a>
 
-            <a href='https://github.com/{{ github_user }}' target='_blank'>
-                <div class='fab fa-github'></div>
-            </a>
+            <a href='https://github.com/{{ github_user }}' target='_blank' class='fab fa-github icon'></a>
         </nav>
     </header>
 
@@ -58,18 +55,11 @@
         </a>
     </div>
 
-    <ul id='list'>
-        {% for api in list_apis %}
-            <li class='li-name'>
-                <a href='{{ api.wiki }}' class='api-name' target='_blank'>
-                    {{ api.name }}
-                    <div class='fas fa-arrow-up-right-from-square'></div>
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
+    <ul id='list'></ul>
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>
+
+    <script src='{{ url_for('static', filename='apis.js') }}'></script>
     <script src='{{ url_for('static', filename='index.js') }}'></script>
 </body>
 </html>
