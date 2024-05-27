@@ -33,9 +33,9 @@ header {
     display: fixed;
     margin-bottom: 1em;
     z-index: 99999999999;
+    box-shadow: var(--box-shadow);
     line-height: var(--header-height);
     background: var(--bg-hover-color);
-    border-bottom: .1em solid var(--border-color);
 }
 
 header > .logo {
@@ -61,13 +61,11 @@ header > .tab {
     font-size: .8em;
     font-weight: 600;
     text-align: center;
-    line-height: 3.7em;
+    line-height: 3.8em;
 }
 
 header > .actived {
     background: var(--body-color);
-    border-left: .1em solid var(--border-color);
-    border-right: .1em solid var(--border-color);
 }
 
 header > .tab:hover { background: var(--body-color); }
@@ -77,21 +75,18 @@ header > nav { float: right; }
 header > nav > .icon {
     float: left;
     width: 3.6em;
-    height: 3.7em;
+    height: 3.8em;
     color: inherit;
     cursor: pointer;
     font-size: .8em;
-    line-height: 3.7em;
+    line-height: 3.8em;
     text-align: center;
     text-decoration: none;
     vertical-align: middle;
-    border-left: .1em solid transparent;
-    border-right: .1em solid transparent;
 }
 
 header > nav > .showed {
     background: var(--body-color);
-    border-color: var(--border-color);
 }
 
 header > nav > a:hover { background: var(--body-color); }
@@ -104,6 +99,7 @@ header > nav > a:hover { background: var(--body-color); }
     margin-top: -1em;
     line-height: 2.5em;
     margin-bottom: 1em;
+    box-shadow: var(--box-shadow);
     background: var(--bg-hover-color);
 }
 
@@ -118,13 +114,10 @@ header > nav > a:hover { background: var(--body-color); }
     padding-right: 1%;
     background: inherit;
     font-family: inherit;
-    border-top: .1em solid transparent;
     border-left: .5em solid transparent;
-    border-bottom: .1em solid var(--border-color);
 }
 
 .search-bar > input:hover, .search-bar > input:focus {
-    background: var(--body-color);
     border-left-color: var(--border-color);
     animation: border-slide .5s ease-in-out forwards;
 }
