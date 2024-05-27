@@ -1,5 +1,7 @@
 $( e => {
 
+    getFetchApis()
+
     $('#search-input').on('input', function () {
         var searchText = $(this).val().toLowerCase()
 
@@ -34,11 +36,11 @@ $( e => {
     })
 
     $('#apisBtn').click( function () {
-        getFetchApis(this)
+        getFetchApis()
     })
 
     $('#cratesBtn').click( function () {
-        getFetchCrates(this)
+        getFetchCrates()
     })
 
 })
