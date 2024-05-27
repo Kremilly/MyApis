@@ -1,14 +1,14 @@
-@import url("https://use.typekit.net/mjw8ozi.css");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
     --font-size: 1em;
     --header-height: 3em;
 
-    --text-color: #dedede;
-    --body-color: #282a36;
-    --border-color: #6e7681;
-    --bg-hover-color: #323543;
-    --text-color-hover: #88e2f5;
+    --text-color: #dcdcdc;
+    --body-color: #1e1e1e;
+    --border-color: #333333;
+    --bg-hover-color: #292929;
+    --text-color-hover: #8cd6ff;
 
     --box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
 }
@@ -22,7 +22,7 @@
 body {
     color: var(--text-color);
     background: var(--body-color);
-    font-family: 'all-round-gothic', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 header {
@@ -125,6 +125,7 @@ header > nav > a:hover { background: var(--body-color); }
 .search-bar > input:hover, .search-bar > input:focus {
     background: var(--body-color);
     border-left-color: var(--border-color);
+    animation: border-slide .5s ease-in-out forwards;
 }
 
 .search-bar > input:hover::placeholder { color: var(--text-color); }
@@ -155,12 +156,12 @@ header > nav > a:hover { background: var(--body-color); }
     font-weight: 600;
     line-height: 2.5em;
     text-decoration: none;
-    border-left: .5em solid transparent;
 }
 
 .menu-box > a:hover {
-    background: var(--body-color);
-    border-left-color: var(--border-color);
+    border-left: 0 solid transparent;
+    background: var(--bg-hover-color);
+    animation: border-slide .5s ease-in-out forwards;
 }
 
 .menu-box > a > div {
