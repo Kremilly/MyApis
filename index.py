@@ -28,7 +28,7 @@ kremilly = Kremilly(app, {
 
 @app.route('/')
 def index():
-    return redirect('https://v2.kremilly.com/#apis', code=302)
+    return redirect(f'https://{kremilly.domain}/#apis', code=302)
 
 @app.route('/json')
 def json():
