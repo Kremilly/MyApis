@@ -10,7 +10,7 @@ from apis.readme import ReadmeDevToPosts
 
 from kremilly.kremilly import Kremilly
 
-from flask import Flask, request, render_template
+from flask import Flask, request, redirect
 
 app = Flask(__name__)
 
@@ -28,16 +28,7 @@ kremilly = Kremilly(app, {
 
 @app.route('/')
 def index():
-    return render_template(
-        'index.html',
-        
-        pypi_user=kremilly.pypi,
-        email_user=kremilly.email,
-        github_user=kremilly.github,
-        crates_user=kremilly.crates,
-        website_domain=kremilly.domain,
-        packagist_user=kremilly.packagist,
-    )
+    return redirect('https://v2.kremilly.com/#apis', code=302)
 
 @app.route('/json')
 def json():
