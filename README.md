@@ -10,8 +10,7 @@
 </p>
 
 <p align='center'>
-  <a href='https://kremilly.com'><img src='https://img.shields.io/badge/Kremilly.com-000000?style=for-the-badge&logo=About.me&logoColor=white' /></a>
-  <a href='https://api.kremilly.com'><img src='https://img.shields.io/badge/Kremilly-APIs-000000?style=for-the-badge&logo=About.me&logoColor=white' /></a>
+  <a href='https://kremilly.com/#apis'><img src='https://img.shields.io/badge/Kremilly.com-000000?style=for-the-badge&logo=About.me&logoColor=white' /></a>
 </p>
 
 > [!important]
@@ -43,6 +42,9 @@
   </li>
   <li>
     <b><a href='https://github.com/kremilly/MyApis/wiki/scihub'>SciHub</a></b>
+  </li>
+  <li>
+    <b><a href='https://github.com/Kremilly/MyApis/wiki/statslangs'>Statslangs</a></b>
   </li>
   <li>
     <b><a href='https://github.com/kremilly/MyApis/wiki/wikipedia'>Wikipedia</a></b>

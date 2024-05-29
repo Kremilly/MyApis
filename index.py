@@ -7,37 +7,36 @@ from apis.pdf_thumb import PDFThumb
 from apis.wikipedia import Wikipedia
 from apis.pdf_scrape import PDFScrape
 from apis.readme import ReadmeDevToPosts
+from apis.stats_langs import GitHubStatsLangs
 
 from kremilly.kremilly import Kremilly
 
-from flask import Flask, request, redirect
+from flask import Flask, request
 
 app = Flask(__name__)
 
 kremilly = Kremilly(app, {
     'repo': 'MyApis',
     'github': 'Kremilly',
-    
-    'pypi': 'Kremilly',
-    'crates': 'Kremilly',
-    'packagist': 'Kremilly',
-    
     'domain': 'kremilly.com',
-    'email': 'contact@kremilly.com',
 })
 
 @app.route('/')
-def index():
-    return redirect(f'https://{kremilly.domain}/#apis', code=302)
-
 @app.route('/json')
-def json():
+def index():
     return kremilly.list_json()
 
 @app.route('/github', methods=['GET'])
 def github():
     return GitHub({
         'user': request.args.get('user')
+    }).get()
+    
+@app.route('/statslangs', methods=['GET'])
+def statslangs():
+    return GitHubStatsLangs({
+        'user': request.args.get('user'),
+        'forks': request.args.get('forks'),
     }).get()
 
 @app.route('/qrcode', methods=['GET'])
