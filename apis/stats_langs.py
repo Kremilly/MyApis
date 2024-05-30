@@ -80,7 +80,7 @@ class GitHubStatsLangs:
             if primary_language:
                 language_name = primary_language['name']
                 
-                if language_name not in {'CSS', 'SCSS', 'SASS'}:
+                if language_name:
                     if language_name in language_count:
                         language_count[language_name] += 1
                     else:
