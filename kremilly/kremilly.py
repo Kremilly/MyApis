@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, url_for
+from flask import Flask, jsonify, request
 
 class Kremilly:
     
@@ -13,12 +13,14 @@ class Kremilly:
     @classmethod
     def list_json(cls):
         endpoints = []
-        base_url = url_for('index', _external=True)
+        base_url = request.url_root
 
         for rule in cls.app.url_map.iter_rules():
             if rule.endpoint != 'index' and rule.endpoint != 'static' and rule.endpoint != 'json':
                 fmt_endpoint = rule.endpoint.replace(
                     '_', '-'
+                ).replace(
+                    '//', '/'
                 )
                 
                 endpoints.append({
