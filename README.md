@@ -1,5 +1,5 @@
 <div align='center'>
-  <img src='https://github.com/kremilly/kremilly/raw/main/images/new-logo-apis.png' height='64' />
+  <img src='https://github.com/kremilly/kremilly/raw/main/images/new-logo-name.png' />
   <p>This is where you can find all the APIs I've built using the <b><a href='https://flask.palletsprojects.com/en/3.0.x'>Flask</a></b> framework and <b><a href='https://python.org'>Python</a></b> programming language.</p>
 </div>
 
