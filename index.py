@@ -26,6 +26,10 @@ kremilly = Kremilly(app, {
 def index():
     return kremilly.list_json()
 
+@app.route('/rss')
+def rss():
+    return kremilly.rss()
+
 @app.route('/github', methods=['GET'])
 def github():
     return GitHub({
