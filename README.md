@@ -17,33 +17,33 @@
 
 <ul>
   <li>
-    <b><a href='https://github.com/kremilly/MyApis/wiki/cve'>CVE</a></b>
+    <b><a href='https://kremilly.com/docs/cve'>CVE</a></b>
   </li>
   <li>
-    <b><a href='https://github.com/kremilly/MyApis/wiki/devto'>DevTo</a></b>
+    <b><a href='https://kremilly.com/docs/devto'>DevTo</a></b>
   </li>
   <li>
-    <b><a href='https://github.com/kremilly/MyApis/wiki/github'>GitHub</a></b>
+    <b><a href='https://kremilly.com/docs/github'>GitHub</a></b>
   </li>
   <li>
-    <b><a href='https://github.com/kremilly/MyApis/wiki/pdfinfo'>PDFInfo</a></b>
+    <b><a href='https://kremilly.com/docs/pdfinfo'>PDFInfo</a></b>
   </li>
   <li>
-    <b><a href='https://github.com/kremilly/MyApis/wiki/pdfscrape'>PDFScrape</a></b>
+    <b><a href='https://kremilly.com/docs/pdfscrape'>PDFScrape</a></b>
   </li>
   <li>
-    <b><a href='https://github.com/kremilly/MyApis/wiki/pdfthumb'>PDFThumb</a></b>
+    <b><a href='https://kremilly.com/docs/pdfthumb'>PDFThumb</a></b>
   </li>
   <li>
-    <b><a href='https://github.com/kremilly/MyApis/wiki/qrcode'>QRCode</a></b>
+    <b><a href='https://kremilly.com/docs/qrcode'>QRCode</a></b>
   </li>
   <li>
-    <b><a href='https://github.com/kremilly/MyApis/wiki/scihub'>SciHub</a></b>
+    <b><a href='https://kremilly.com/docs/scihub'>SciHub</a></b>
   </li>
   <li>
-    <b><a href='https://github.com/Kremilly/MyApis/wiki/statslangs'>Statslangs</a></b>
+    <b><a href='https://kremilly.com/docs/statslangs'>Statslangs</a></b>
   </li>
   <li>
-    <b><a href='https://github.com/kremilly/MyApis/wiki/wikipedia'>Wikipedia</a></b>
+    <b><a href='https://kremilly.com/docs/wikipedia'>Wikipedia</a></b>
   </li>
 </ul>
