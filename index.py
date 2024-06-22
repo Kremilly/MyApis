@@ -1,7 +1,6 @@
 from apis.cve import CVE
 from apis.qrcode import QRCode
 from apis.github import GitHub
-from apis.sci_hub import SciHub
 from apis.pdf_info import PDFInfo
 from apis.pdf_thumb import PDFThumb
 from apis.wikipedia import Wikipedia
@@ -71,12 +70,6 @@ def wikipedia():
 def cve():
     return CVE({
         'id': request.args.get('id')
-    }).get()
-
-@app.route('/scihub', methods=['GET'])
-def scihub():
-    return SciHub({
-        'paper': request.args.get('paper')
     }).get()
     
 @app.route('/pdfscrape', methods=['GET'])
