@@ -12,8 +12,6 @@
 > [!important]
 > All the provided APIs do not require any type of API key and are free to use.
 
-<h3>API's</h3>
-
 <ul>
   <li>
     ⚙️ <b><a href='https://kremilly.com/docs/cve'>CVE</a></b>
