@@ -17,7 +17,7 @@ app = Flask(__name__)
 kremilly = Kremilly(app, {
     'repo': 'MyApis',
     'github': 'Kremilly',
-    'domain': 'kremilly.com',
+    'domain': 'docs.kremilly.com',
 })
 
 @app.route('/')

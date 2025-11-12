@@ -15,35 +15,35 @@ class GitHub:
         return f"""
         query {{
             user(login: "{self.user}") {{
-                pinnedItems(first: 10, types: REPOSITORY) {{
+            pinnedItems(first: 10, types: REPOSITORY) {{
+                nodes {{
+                ... on Repository {{
+                    name
+                    description
+                    url
+                    homepageUrl
+                    languages(first: 5, orderBy: {{field: SIZE, direction: DESC}}) {{
+                        nodes {{ name }}
+                    }}
+                    stargazerCount
+                    forkCount
+                    repositoryTopics(first: 5) {{
                     nodes {{
-                        ... on Repository {{
-                            name
-                            description
-                            url
-                            homepageUrl
-                            languages(first: 5) {{
-                                nodes {{ name }}
-                            }}
-                            stargazerCount
-                            forkCount
-                            repositoryTopics(first: 5) {{
-                                nodes {{
-                                    topic {{ name }}
-                                }}
-                            }}
-                            issues {{ totalCount }}
-                            defaultBranchRef {{
-                                target {{
-                                    ... on Commit {{
-                                        history {{ totalCount }}
-                                    }}
-                                }}
-                            }}
-                            collaborators {{ totalCount }}
+                        topic {{ name }}
+                    }}
+                    }}
+                    issues {{ totalCount }}
+                    defaultBranchRef {{
+                    target {{
+                        ... on Commit {{
+                        history {{ totalCount }}
                         }}
                     }}
+                    }}
+                    collaborators {{ totalCount }}
                 }}
+                }}
+            }}
             }}
         }}
         """

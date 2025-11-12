@@ -27,7 +27,7 @@ class Kremilly:
                 endpoints.append({
                     'name': rule.endpoint,
                     'url': f'{base_url}{fmt_endpoint}',
-                    'wiki': f'https://{cls.domain}/docs/{rule.endpoint}',
+                    'wiki': f'https://{cls.domain}/{rule.endpoint}',
                 })
 
         list_sorted = sorted(
